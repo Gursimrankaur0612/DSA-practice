@@ -1,0 +1,15 @@
+# Compiled class files
+*.class
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# Maven/Gradle build directories
+/target/
+/build/
+
+# Log files
+*.log
+
