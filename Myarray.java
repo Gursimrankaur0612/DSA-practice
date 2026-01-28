@@ -10,6 +10,7 @@ public class Myarray{
             arr1[i]=sc.nextInt();
         }
         int index=0;
+        System.out.println("2D Array:");
         int arr2[][]=new int[3][4];
         for(int i=0;i<3;i++)
         {
