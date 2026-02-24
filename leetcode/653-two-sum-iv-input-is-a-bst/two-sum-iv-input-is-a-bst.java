@@ -13,7 +13,7 @@
  *     }
  * }
  */
-class Solution {
+/*class Solution {
     public boolean findTarget(TreeNode root, int k) {
         List<Integer> nums=new ArrayList<>();
         inorder(root,nums);
@@ -34,5 +34,24 @@ class Solution {
         inorder(root.left,nums);
         nums.add(root.val);
         inorder(root.right,nums);
+    }
+}*/
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> set = new HashSet<>();
+        return helper(root, k, set);
+    }
+    
+    private boolean helper(TreeNode node, int k, Set<Integer> set) {
+        if (node == null) return false;
+        
+        // Check if the complement already exists in the set
+        if (set.contains(k - node.val)) {
+            return true;
+        }
+        
+        // Add current value to set and recurse
+        set.add(node.val);
+        return helper(node.left, k, set) || helper(node.right, k, set);
     }
 }
