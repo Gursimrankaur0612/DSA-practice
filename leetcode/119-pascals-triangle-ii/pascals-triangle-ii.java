@@ -6,7 +6,7 @@ class Solution {
 
         for(int i=1;i<=rowIndex;i++)
         {
-            c=c*(rowIndex-i+1)/i;
+            c=c*(rowIndex-i+1)/i; //formula
             row.add((int)c);
         }
 
