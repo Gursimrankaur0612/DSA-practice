@@ -12,11 +12,15 @@ class Solution {
         int dup=-1;
         for(int i=nums.length-1;i>=0;i--)
         {
+            
             if(visited[nums[i]]==true)
-            dup=nums[i];
-
+            {
+                dup=nums[i];
+            }
             else
-            visited[nums[i]]=true;
+            {
+                visited[nums[i]]=true;
+            }
         }
         return dup;
     }
