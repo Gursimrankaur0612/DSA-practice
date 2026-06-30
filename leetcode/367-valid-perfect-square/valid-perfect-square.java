@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
     public boolean isPerfectSquare(int num) {
         if(num<1)return false;
 
@@ -25,5 +25,15 @@ class Solution {
             
         }
         return false;
+    }
+}*/
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        int odd = 1;
+        while (num > 0) {
+            num -= odd;
+            odd += 2;
+        }
+        return num == 0;
     }
 }
