@@ -3,36 +3,39 @@ class Solution {
         if(height==null ||height.length<3)return 0;
         int left=0;
         int right=height.length-1;
-        int leftmax=0,rightmax=0;
+
+        int rmax=0;
+        int lmax=0;
+
         int ans=0;
+
         while(left<right)
         {
             if(height[left]<height[right])
             {
-                if(height[left]>=leftmax)
+                if(height[left]>=lmax)
                 {
-                    leftmax=height[left];
+                    lmax=height[left];
                 }
                 else
                 {
-                    ans+=leftmax-height[left];
+                    ans+=lmax-height[left];
                 }
                 left++;
             }
             else
             {
-                if(height[right]>=rightmax)
+                if(height[right]>=rmax)
                 {
-                    rightmax=height[right];
+                    rmax=height[right];
                 }
                 else
                 {
-                    ans+=rightmax-height[right];
+                    ans+=rmax-height[right];
                 }
                 right--;
             }
         }
         return ans;
-        
     }
 }
