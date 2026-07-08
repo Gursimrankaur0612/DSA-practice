@@ -1,17 +1,21 @@
 class Solution {
     public int climbStairs(int n) {
+         int a[]=new int[n+1];
+            return recur(n,a);
+    }
+
+
+        private int recur(int n, int[]a)
+        {
         if(n<=2){
             return n;
         }
-
-        int first=1;
-        int second=2;
-        for(int i=3;i<=n;i++)
+       
+        if(a[n]!=0)
         {
-            int third=first+second;
-            first=second;
-            second=third;
+            return a[n];
         }
-        return second;
+       a[n]= recur(n-1,a)+recur(n-2,a);
+       return a[n];
     }
 }
