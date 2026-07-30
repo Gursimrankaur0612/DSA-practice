@@ -6,14 +6,14 @@ class Solution {
             pq.add(gifts[i]);
         }
         
-        for(int i=0;i<k;i++)
+        while(k>0)
         {
-            if(pq.isEmpty())break;
 
             int max=pq.poll();
 
             int rem = (int) Math.floor(Math.sqrt(max));
             pq.add(rem);
+            k--;
         }
         long total=0;
         while(!pq.isEmpty())
