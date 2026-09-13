@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int largestOverlap(int[][] img1, int[][] img2) {
+        int n = img1.length;
+        List<int[]> list1 = new ArrayList<>();
+        List<int[]> list2 = new ArrayList<>();
+
+        // Step 1: Collect coordinates of all 1s in both images
+        for (int r = 0; r < n; r++) {
+            for (int c = 0; c < n; c++) {
+                if (img1[r][c] == 1) list1.add(new int[]{r, c});
+                if (img2[r][c] == 1) list2.add(new int[]{r, c});
+            }
+        }
+
+        // Step 2: Map translation vectors to their frequencies
+        Map<String, Integer> countMap = new HashMap<>();
+        int maxOverlap = 0;
+
+        for (int[] p1 : list1) {
+            for (int[] p2 : list2) {
+                int dr = p2[0] - p1[0];
+                int dc = p2[1] - p1[1];
+                
+                String key = dr + "," + dc;
+                int currentCount = countMap.getOrDefault(key, 0) + 1;
+                countMap.put(key, currentCount);
+                
+                maxOverlap = Math.max(maxOverlap, currentCount);
+            }
+        }
+
+        return maxOverlap;
+    }
+}
